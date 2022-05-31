@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #d1411e !important;
+    color: #fff !important;
+}
+
+.navbar .icon{
+    display: inline-flex;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        color: orangered;
+        padding: 7px;
+        border-radius: 50%;
+        transform: rotateY(180deg);
+}
+.navbar p{
+    white-space: nowrap;
+    }
+
+.navbar a{
+    font-weight: bold;
+}
