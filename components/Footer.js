@@ -94,23 +94,16 @@ export default function Footer() {
           </div>
 
           <div className="col-md-4 ">
-            <Form>
               <Row className="mt-4 d-flex flex-column">
-                <Col>
-                  <Form.Control placeholder="First name" />
-                </Col>
-                <Col className="mt-3">
-                  <Form.Control type="email" placeholder="Email Address" />
-                </Col>
-                <Col className="mt-3">
-                  <Form.Control
-                    className="w-100 pt-4"
-                    placeholder="Ur Messge.."
-                  />
-                </Col>
-              </Row>
-              </Form>
-              <Button className="btn btn-danger mt-2">Send</Button>
+              <div style={{position: 'relative', textAlign:'right',height:'200px',width:'250px'}} className="mapouter">
+                <div style={{overflow:'hidden',background:'none',height:'200px',width:'250px'}} className="gmap_canvas">
+                  <iframe width="250" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=giza&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                    <a href="https://fmovies-online.net"></a>
+                <a href="https://www.embedgooglemap.net"></a>
+              
+              </div>
+              </div>
+            </Row>
           </div>
         </Row>
       </Container>

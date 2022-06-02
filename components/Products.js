@@ -6,7 +6,7 @@ import Image from "next/image";
 import "../styles/gallery.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import {products} from "../products";
+import { products } from "../products";
 export default function Products() {
   return (
     <>

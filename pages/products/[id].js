@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import Head from "next/head";
 
 import { Button, Row } from "react-bootstrap";
@@ -94,13 +94,13 @@ export default function ProductDetails(props) {
 export async function getStaticProps(context) {
   const res = await fetch(
     `http://localhost:3000/api/products/${context.params.id}`
-    );
-    const data = await res.json();
-  return { 
+  );
+  const data = await res.json();
+  return {
     props: {
-      product: data
-    }
-  }
+      product: data,
+    },
+  };
 }
 
 export async function getStaticPaths() {
@@ -114,7 +114,7 @@ export async function getStaticPaths() {
     };
   });
   return {
-    paths:paths,
+    paths: paths,
     fallback: false,
   };
 }
