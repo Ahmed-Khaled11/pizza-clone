@@ -24,11 +24,11 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="col-md-6">
                 <Image
                   className="w-100 h-100"
-                  src="/images/header1.webp"
+                  src="/images/gallery2.png"
                   alt=""
                   width="500px"
                   height="500px"
@@ -53,7 +53,7 @@ const Header = () => {
               <div className="col-md-6">
                 <Image
                   className="w-100 h-100"
-                  src="/images/header2.webp"
+                  src="/images/gallery3.png"
                   alt=""
                   width="500px"
                   height="500px"
@@ -78,7 +78,7 @@ const Header = () => {
               <div className="col-md-6">
                 <Image
                   className="w-100 h-100"
-                  src="/images/header3.webp"
+                  src="/images/gallery1.png"
                   alt=""
                   width="500px"
                   height="500px"

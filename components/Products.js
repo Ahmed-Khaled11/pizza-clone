@@ -1,13 +1,76 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable react/jsx-key */
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import Image from "next/image";
 import "../styles/gallery.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import { products } from "../products";
-export default function Products() {
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
+export default function Products(props) {
+  const [products, setProducts] = useState([]);
+  const [loading, setloading] = useState(false);
+  const componentMounted = true;
+  useEffect(() => {
+    const getProducts = async () => {
+      setloading(true);
+      const response = await fetch("http://localhost:3000/api/products");
+      if (componentMounted) {
+        setProducts(await response.clone().json());
+        setloading(false);
+      }
+    };
+    getProducts();
+  }, []);
+
+  const Loading = () => {
+    return (
+      <Fragment>
+        <div className="col-md-3">
+          <Skeleton count={2} height={250} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton count={2} height={250} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton count={2} height={250} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton count={2} height={250} />
+        </div>
+      </Fragment>
+    );
+  };
+  const ShowProducts = () => {
+    return (
+      <Fragment>
+        {products.map(({ id, path, title, price, info }) => {
+          return (
+            <div className="col-md-3" key={id}>
+              <Image src={path} alt={`${title}`} width="200px" height="200px" />
+              <div className="info">
+                <h2 className=" fs-4 fw-bold">{title}</h2>
+                <div className="price d-flex justify-content-center align-items-center">
+                  <p className="m-0 fw-semibold">{price}</p>
+                </div>
+                <span className="text-black-50">{info}</span>
+              </div>
+              <Link href={`/products/${id}`}>
+                <button
+                  type="button"
+                  className="btn btn-danger order-now mt-3 mb-3"
+                >
+                  Order Now
+                </button>
+              </Link>
+            </div>
+          );
+        })}
+      </Fragment>
+    );
+  };
   return (
     <>
       <Head>
@@ -32,30 +95,7 @@ export default function Products() {
               labore
             </p>
           </div>
-          <Row>
-            {products.map(({ id, path, title, price, info }) => {
-              return (
-                <div className="col-md-3" key={id}>
-                  <Image src={path} alt="" width="200px" height="200px" />
-                  <div className="info">
-                    <h2 className=" fs-4 fw-bold">{title}</h2>
-                    <div className="price d-flex justify-content-center align-items-center">
-                      <p className="m-0 fw-semibold">{price}</p>
-                    </div>
-                    <span className="text-black-50">{info}</span>
-                  </div>
-                  <Link href={`/products/${id}`}>
-                    <button
-                      type="button"
-                      className="btn btn-danger order-now mt-3 mb-3"
-                    >
-                      Order Now
-                    </button>
-                  </Link>
-                </div>
-              );
-            })}
-          </Row>
+          <Row>{loading ? <Loading /> : <ShowProducts />}</Row>
         </Container>
       </section>
     </>

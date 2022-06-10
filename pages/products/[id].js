@@ -1,11 +1,19 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, {useState, useEffect} from 'react'
 import Image from "next/image";
 import Head from "next/head";
-
-import { Button, Row } from "react-bootstrap";
+import { Button, Nav, Row } from "react-bootstrap";
+import { useDispatch } from 'react-redux';
+import { sendData } from '../../redux/productSlice'
+import Link from 'next/link';
+import "react-toastify/dist/ReactToastify.css";
 export default function ProductDetails(props) {
+
+  const dispatch = useDispatch()
+  const handleCart = (product) => {
+    dispatch(sendData(product));
+  }
   return (
     <div>
       <Head>
@@ -20,10 +28,10 @@ export default function ProductDetails(props) {
         />
       </Head>
       <Row className="product text-center m-4 text-md-start d-flex flex-column  flex-md-row">
-        <div className="col-md-4 m-md-6">
+        <div className="col-md-6 m-md-6 d-flex justify-content-center align-items-center">
           <Image src={`${props.product.path}`} width="450px" height="450px" />
         </div>
-        <div className="col-md-6 p-2 fs-5 fw-bold m-1 m-md-4 d-flex justify-content-start align-items-start flex-column">
+        <div className="col-md-4 p-2 fs-5 fw-bold m-1 m-md-4 d-flex justify-content-start align-items-start flex-column">
           <h2 className="fs-1 fw-bold text-uppercase">{props.product.title}</h2>
           <span>{props.product.price}</span>
           <p className="text-black-50 text-capitalize">
@@ -40,14 +48,14 @@ export default function ProductDetails(props) {
               </label>
             </div>
             <div>
-              {" "}
+              
               <input type="checkbox" id="medium" name="medium" />
               <label className="ms-2" htmlFor="medium">
                 Medium
               </label>
             </div>
             <div>
-              {" "}
+              
               <input type="checkbox" id="large" name="large" />
               <label className="ms-2" htmlFor="large">
                 Large
@@ -81,9 +89,42 @@ export default function ProductDetails(props) {
               </label>
             </div>
           </div>
-          <div className="cart w-100 ms-2 mt-4">
+          <div className="cart d-flex w-100 ms-2 mt-4">
             <input type="number" defaultValue="1" />
-            <Button className="btn btn-danger">Add To Cart</Button>
+            <Button
+              onClick={() => handleCart(props.product)}
+              className="btn bg-white ms-2"
+              style={{
+                color: "#dc3545",
+                border: "1px solid #dc3545 !important",
+              }}
+            >
+              
+              Add To Cart
+            </Button>
+            <Link href="/cart">
+              <Nav.Link href="/cart" className="btn btn-danger ms-2">
+                
+                <div className="go-cart d-flex justify-content-center">
+                  <span className='text-white'>Go To Cart</span>
+                  <span className="d-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="white"
+                      className="bi bi-bag-check-fill  ms-2"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </Nav.Link>
+            </Link>
           </div>
         </div>
       </Row>

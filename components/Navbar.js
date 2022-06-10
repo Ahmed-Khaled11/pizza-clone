@@ -4,33 +4,35 @@ import styles from "../styles/Navbar.module.css";
 import {
   Container,
   Nav,
-  NavLink,
-  NavDropdown,
-  Form,
-  FormControl,
   Navbar,
-  Button,
 } from "react-bootstrap";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 const theNavbar = () => {
+  const { product } = useSelector((state) => state.product);
   return (
     <Navbar className="nav position-sticky top-0" expand="lg">
       <Container>
-        <span className="cart d-block ms-1 ms-md-4 me-1 me-md-5">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="currentColor"
-            className="bi bi-cart-check"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-          </svg>
-        </span>
+        <Link href="/cart">
+          <Nav.Link href="/cart">
+            <span className="cart d-block ms-1 ms-md-4 me-1 me-md-5">
+              <p className="num">{product.length}</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                className="bi bi-cart-check"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg>
+            </span>
+          </Nav.Link>
+        </Link>
         <div>
-          <div className="logo">
+          <div className="logo ms-3 ms-md-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
