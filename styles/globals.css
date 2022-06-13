@@ -24,7 +24,22 @@ a {
   min-width: 100%;
   z-index: 99;
 }
-
+.nav .active{
+  position: relative;
+}
+.nav .active::before{
+    border-radius: 50%;
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background-color: #ffff;
+      border-radius: 50%; 
+      bottom: -50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  
+}
 .nav .logo svg{
     background-color: #fff;
     color: var(--main-color);
@@ -40,6 +55,9 @@ a {
     align-items: center;
     position: relative;
       cursor: pointer;
+}
+.nav .cart .active{
+    color: blue;
 }
 
 .nav .cart .num{
@@ -77,10 +95,26 @@ a {
   background-color: #bd3c1c;}
 
 .header{
-  height: 100vh;
+  height: 93vh;
   background-color: var(--main-color);
   color: #fff;
   text-transform: uppercase;
+}
+.header .box{
+  margin-top: -40px;
+}
+.header img{
+  width: 390px !important;
+  height: 390px !important;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+@media (max-width:767px) {
+  .header img {
+      width:250px !important;
+      height: 250px !important;
+    }
 }
 .header .text{
   line-height: 2.5;
@@ -90,6 +124,9 @@ a {
     background-color: #fff;
     width: 100%;
     height: 1px;
+}
+.header .carousel-indicators{
+  bottom: -50px;
 }
 .header .carousel-indicators button{
   width: 10px;
@@ -157,9 +194,12 @@ outline: none;
 .total{
       height: calc(100vh - 81px - 311px);
 }
-.total .total-info{
-  padding: 20px;
-  
+
+ .total-info ul:not(:first-child)
+ {
+  border-left: 2px solid var(--main-color);
+  padding-left: 4px;
+
 }
 .Toastify__close-button{
 background-color: transparent !important;
@@ -188,16 +228,21 @@ font-size: 16px;
   text-align: center;
   align-items: center;
 }
-.total-info ul:first-of-type{
-  margin-top: 14px;
+.total-info .del-btn{
+  background-color:#fff;
+  color: var(--main-color) ;
+  border: none !important;
+}
+.total-info .del-btn:hover{
+  background-color:var(--main-color);
+  color: #fff ;
+
 }
 .total-price,
 .total-price span {
   text-transform: uppercase;
   font-weight: bold;
 }
-
 .total-price span {
   color: var(--main-color);
-
 }

@@ -33,7 +33,7 @@ export default function ProductDetails(props) {
         </div>
         <div className="col-md-4 p-2 fs-5 fw-bold m-1 m-md-4 d-flex justify-content-start align-items-start flex-column">
           <h2 className="fs-1 fw-bold text-uppercase">{props.product.title}</h2>
-          <span>{props.product.price}</span>
+          <span>$ {props.product.price}</span>
           <p className="text-black-50 text-capitalize">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Accusantiumsit aliquid.Accusantiumsit aliquid amet Accusantiumsit

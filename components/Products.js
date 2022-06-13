@@ -16,7 +16,9 @@ export default function Products(props) {
   useEffect(() => {
     const getProducts = async () => {
       setloading(true);
-      const response = await fetch("http://localhost:3000/api/products");
+      const response = await fetch(
+        "http://localhost:3000/api/products"
+      );
       if (componentMounted) {
         setProducts(await response.clone().json());
         setloading(false);
@@ -53,7 +55,7 @@ export default function Products(props) {
               <div className="info">
                 <h2 className=" fs-4 fw-bold">{title}</h2>
                 <div className="price d-flex justify-content-center align-items-center">
-                  <p className="m-0 fw-semibold">{price}</p>
+                  <p className="m-0 fw-semibold">$ {price}</p>
                 </div>
                 <span className="text-black-50">{info}</span>
               </div>

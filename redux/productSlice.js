@@ -17,9 +17,8 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     sendData: (state, action) => {
-      const productIndex = state.product.findIndex(
-        (prod) => prod.id === action.payload.id
-      );
+      // check before send product to cart cause i dont send it twice 
+      const productIndex = state.product.findIndex((prod) => prod.id === action.payload.id);
       if (productIndex >= 0) {
         toast.info(`Pizza ${action.payload.title} Already In Cart`, {
           position: "bottom-right",
@@ -31,7 +30,7 @@ export const productSlice = createSlice({
           progress: undefined,
         });
       } else {
-        const tempProduct = { ...action.payload };
+        const tempProduct = action.payload;
         state.product.push(tempProduct);
         toast.success("Added To Cart successfully", {
           position: "bottom-right",
@@ -43,12 +42,17 @@ export const productSlice = createSlice({
           progress: undefined,
         });
       }
+      // add Product of cart to localStorage 
       localStorage.setItem("cartProduct", JSON.stringify(state.product));
     },
+    // update data i deleted from cart  
+    updateData(state, action) {
+      state.product = action.payload;
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { sendData } = productSlice.actions;
+export const { sendData, updateData } = productSlice.actions;
 
 export default productSlice.reducer;

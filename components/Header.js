@@ -15,7 +15,7 @@ const Header = () => {
               <div className="col-md-6 d-flex justify-content-center align-items-center">
                 <div className="text d-flex justify-content-center  align-items-center flex-column">
                   <h2 className="fs-2 fw-bold">hot & spicy</h2>
-                  <p className="d-block fs-1 fw-bold">pizza</p>
+                  <p className="d-block fs-1 fw-bold text-warning">pizza</p>
                   <div className="offer d-flex justify-content-center  align-items-center flex-column">
                     <span className="d-block">50% off</span>
                     <hr />
@@ -25,13 +25,13 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              <div className="box col-md-6 d-flex justify-content-center align-items-center ">
                 <Image
                   className="w-100 h-100"
                   src="/images/gallery2.png"
                   alt=""
-                  width="500px"
-                  height="500px"
+                  width="390px"
+                  height="390px"
                 />
               </div>
             </Row>
@@ -50,23 +50,23 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="box col-md-6  d-flex justify-content-center align-items-center">
                 <Image
                   className="w-100 h-100"
                   src="/images/gallery3.png"
                   alt=""
-                  width="500px"
-                  height="500px"
+                  width="390px"
+                  height="390px"
                 />
               </div>
             </Row>
           </Carousel.Item>
           <Carousel.Item>
-            <Row className="pt-4 pb-4">
+            <Row className="pt-4 pb-4 ">
               <div className="col-md-6 d-flex justify-content-center align-items-center">
                 <div className="text d-flex justify-content-center  align-items-center flex-column">
                   <h2 className="fs-2 fw-bold">hot & spicy</h2>
-                  <p className="d-block fs-1 fw-bold">pizza</p>
+                  <p className="d-block fs-1 fw-bold text-warning">pizza</p>
                   <div className="offer d-flex justify-content-center  align-items-center flex-column">
                     <span className="d-block">50% off</span>
                     <hr />
@@ -75,13 +75,13 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6">
+              <div className="box col-md-6  d-flex justify-content-center align-items-center">
                 <Image
                   className="w-100 h-100"
-                  src="/images/gallery1.png"
+                  src="/images/gallery2.png"
                   alt=""
-                  width="500px"
-                  height="500px"
+                  width="390px"
+                  height="390px"
                 />
               </div>
             </Row>
