@@ -34,7 +34,7 @@ export default function Contact() {
             </Form.Group>
             <Form.Group className="mt-2 mb-2  text-black-50" controlId="formBasicPassword">
               <Form.Label>Message</Form.Label>
-              <Form.Control style={{ height: "80px" }} type="text" />
+              <Form.Control style={{ height: "50px" }} type="text" />
             </Form.Group>
             <Button
               variant="primary "
