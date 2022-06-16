@@ -19,7 +19,7 @@ export default function Contact() {
       <div className="contact d-flex justify-content-center align-items-center">
         <Form className="position-absolute bg-white w-80 h-70 p-4">
           <Form.Group className="mb-3 text-center" controlId="formBasicEmail">
-            <Form.Label className="fw-bolder fs-1 p-1 p-md-4 mb-4">
+            <Form.Label className="fw-bolder fs-4 fs-md-1 p-1 p-md-4 mb-4">
               Contact Us
             </Form.Label>
           </Form.Group>
@@ -36,14 +36,14 @@ export default function Contact() {
               <Form.Label>Message</Form.Label>
               <Form.Control style={{ height: "80px" }} type="text" />
             </Form.Group>
+            <Button
+              variant="primary "
+              className="btn btn-danger mt-1 mt-md-5 ms-auto me-auto d-flex ps-5 pe-5"
+              type="submit"
+            >
+              Send Your Message
+            </Button>
           </div>
-          <Button
-            variant="primary "
-            className="btn btn-danger mt-5 ms-auto me-auto d-flex ps-5 pe-5"
-            type="submit"
-          >
-            Send Your Message
-          </Button>
         </Form>
       </div>
     </>

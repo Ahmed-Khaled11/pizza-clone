@@ -275,6 +275,11 @@ background-color: rgba(0, 0, 0, 0.59);
   text-transform: capitalize;
   font-size: 60px;
 }
+@media (max-width:768px) {
+  .events .text {
+      font-size:25px;
+    }
+}
 .events .text .date{
   border: 1px solid #fff;
   border-radius: 16px;
@@ -306,7 +311,7 @@ background-color: rgba(0, 0, 0, 0.59);
       @media (max-width:768px) {
               .contact form {
                   width: 90%;
-                  height: 60%;
+                  height: 70%;
                 }
       }
       .contact form .theInputs input{
