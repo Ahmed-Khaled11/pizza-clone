@@ -6,6 +6,10 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 const TheNavbar = () => {
   const { product } = useSelector((state) => state.product);
+   const removeClassShow = () => {
+      const disableNav = document.querySelector(".navbar-collapse");
+    disableNav.classList.remove("show");
+  } 
   return (
     <Navbar className="nav position-sticky top-0" expand="lg">
       <Container>
@@ -61,33 +65,48 @@ const TheNavbar = () => {
             navbarScroll
           >
             <Link href="/">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/">
+              <Nav.Link
+                className="ms-0 ms-md-4 p-0 p-md-1"
+                onClick={removeClassShow}
+                href="/"
+              >
                 Home
               </Nav.Link>
             </Link>
             <Link href="/products">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/products">
+              <Nav.Link
+                className="ms-0 ms-md-4 p-0 p-md-1"
+                onClick={removeClassShow}
+                href="/products"
+              >
                 Products
               </Nav.Link>
             </Link>
-            <Link href="/menu">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/menu">
-                Menu
-              </Nav.Link>
-            </Link>
             <Link href="/events">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/events">
+              <Nav.Link
+                className="ms-0 ms-md-4 p-0 p-md-1"
+                onClick={removeClassShow}
+                href="/events"
+              >
                 Events
               </Nav.Link>
             </Link>
-            <Link href="/blog">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/blog">
-                Blog
+            <Link href="/contact">
+              <Nav.Link
+                className="ms-0 ms-md-4 p-0 p-md-1"
+                onClick={removeClassShow}
+                href="/contact"
+              >
+                Contact
               </Nav.Link>
             </Link>
-            <Link href="/contact">
-              <Nav.Link className="ms-0 ms-md-4 p-0 p-md-1" href="/contact">
-                Contact
+            <Link href="/blog">
+              <Nav.Link
+                className="ms-0 ms-md-4 p-0 p-md-1"
+                onClick={removeClassShow}
+                href="/blog"
+              >
+                Blog
               </Nav.Link>
             </Link>
           </Nav>

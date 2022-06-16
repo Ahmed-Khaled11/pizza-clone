@@ -10,7 +10,9 @@ export default function Home() {
     <div>
       <Head>
         <title>Pizza Restaurant</title>
-        <meta name="description" content="Pizza Restaurant" />
+        <meta name="description" content="Pizza Store" />
+        <meta name="keywords" content="pizza store online pizza shop " />
+        <meta name="theme-color" content="#d1411e" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />

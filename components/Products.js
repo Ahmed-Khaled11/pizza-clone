@@ -48,28 +48,26 @@ export default function Products(props) {
   const ShowProducts = () => {
     return (
       <Fragment>
-        {products.map(({ id, path, title, price, info }) => {
-          return (
-            <div className="col-md-3" key={id}>
-              <Image src={path} alt={`${title}`} width="200px" height="200px" />
-              <div className="info">
-                <h2 className=" fs-4 fw-bold">{title}</h2>
-                <div className="price d-flex justify-content-center align-items-center">
-                  <p className="m-0 fw-semibold">$ {price}</p>
-                </div>
-                <span className="text-black-50">{info}</span>
+        {products.map(({ id, path, title, price, info }) => (
+          <div className="col-md-3" key={id}>
+            <Image src={path} alt={`${title}`} width="200px" height="200px" />
+            <div className="info">
+              <h2 className=" fs-4 fw-bold">{title}</h2>
+              <div className="price d-flex justify-content-center align-items-center">
+                <p className="m-0 fw-semibold">$ {price}</p>
               </div>
-              <Link href={`/products/${id}`}>
-                <button
-                  type="button"
-                  className="btn btn-danger order-now mt-3 mb-3"
-                >
-                  Order Now
-                </button>
-              </Link>
+              <span className="text-black-50">{info}</span>
             </div>
-          );
-        })}
+            <Link href={`/products/${id}`}>
+              <button
+                type="button"
+                className="btn btn-danger order-now mt-3 mb-3"
+              >
+                Order Now
+              </button>
+            </Link>
+          </div>
+        ))}
       </Fragment>
     );
   };

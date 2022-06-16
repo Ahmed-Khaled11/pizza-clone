@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable jsx-a11y/alt-text */
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import Image from "next/image";
 import Head from "next/head";
 import { Button, Nav, Row } from "react-bootstrap";
 import { useDispatch } from 'react-redux';
 import { sendData } from '../../redux/productSlice'
 import Link from 'next/link';
-import "react-toastify/dist/ReactToastify.css";
-export default function ProductDetails(props) {
 
+export default function ProductDetails(props) {
   const dispatch = useDispatch()
   const handleCart = (product) => {
     dispatch(sendData(product));
@@ -18,7 +17,9 @@ export default function ProductDetails(props) {
     <div>
       <Head>
         <title>{props.product.title}</title>
-        <meta name="description" content="Pizza Products" />
+        <meta name="description" content="Pizza"/>
+        <meta name="keywords" content="pizza store online pizza shop " />
+        <meta name="theme-color" content="#d1411e" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -48,14 +49,12 @@ export default function ProductDetails(props) {
               </label>
             </div>
             <div>
-              
               <input type="checkbox" id="medium" name="medium" />
               <label className="ms-2" htmlFor="medium">
                 Medium
               </label>
             </div>
             <div>
-              
               <input type="checkbox" id="large" name="large" />
               <label className="ms-2" htmlFor="large">
                 Large
@@ -99,14 +98,12 @@ export default function ProductDetails(props) {
                 border: "1px solid #dc3545 !important",
               }}
             >
-              
               Add To Cart
             </Button>
             <Link href="/cart">
               <Nav.Link href="/cart" className="btn btn-danger ms-2">
-                
                 <div className="go-cart d-flex justify-content-center">
-                  <span className='text-white'>Go To Cart</span>
+                  <span className="text-white">Go To Cart</span>
                   <span className="d-block">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -137,6 +134,7 @@ export async function getStaticProps(context) {
     `http://localhost:3000/api/products/${context.params.id}`
   );
   const data = await res.json();
+
   return {
     props: {
       product: data,

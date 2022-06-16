@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import  Head from "next/head";
 import React, { useState } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +10,7 @@ export default function Cart() {
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
   const [filterProducts, setFilterProducts] = useState(product);
-
-
+  const sum = []
   // function to delete product from Cart
   const deleteProduct = (id) => {
     setFilterProducts(filterProducts.filter((e) => e.id !== +id.target.id));
@@ -20,25 +18,14 @@ export default function Cart() {
   // update product Data
   dispatch(updateData(filterProducts));
   // update product Data for localStorage
-
+  filterProducts.map((e) => sum.push(e.price));
+  const totalPrice = sum.reduce(function (acc, curr) {
+    return acc + curr
+    
+  }, 0)
   localStorage.setItem("cartProduct", JSON.stringify(filterProducts));
   return (
     <div>
-      <Head>
-        <title>
-          {product.title !== "" || product.title !== null
-            ? "product"
-            : product.title}
-        </title>
-        <meta name="description" content="Pizza Products" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Container>
         {filterProducts.length === 0 ? (
           <div className="cart-empty text-center d-flex justify-content-center align-items-center flex-column">
@@ -107,7 +94,7 @@ export default function Cart() {
                 </ul>
                 <ul className="list-unstyled d-flex flex-column">
                   <li>Total</li>
-                  <span>{prod.price}</span>
+                  <span>$ {prod.price}</span>
                 </ul>
                 <ul>
                   <Button
@@ -125,7 +112,11 @@ export default function Cart() {
         )}
         {filterProducts.length > 0 ? (
           <div className="total-price d-flex justify-content-center align-items-center flex-column py-3 fs-3 ">
-            total price <span> $ </span>
+            total price{" "}
+            <span>
+              {" "}
+              ${totalPrice.toFixed(2)}{" "}
+            </span>
             <Link href={`/`}>
               <button type="button" className="btn btn-danger mt-3 mb-3">
                 Pay Now
@@ -139,4 +130,3 @@ export default function Cart() {
     </div>
   );
 }
-// { pri.reduce((e,w) => e + w).toFixed(2)}
