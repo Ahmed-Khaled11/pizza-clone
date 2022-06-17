@@ -23,7 +23,7 @@ export default function Events() {
             <p>2022</p>
           </div>
           <p className="w-50 ms-3">
-            new <span className="text-warning ">Pizza</span> menu will be avilable
+            new <span className="pizza">Pizza</span> menu will be avilable
             soon..
           </p>
         </div>

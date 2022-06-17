@@ -16,6 +16,9 @@ a {
 * {
   box-sizing: border-box;
 }
+.pizza{
+  color: var(--main-color);
+}
 .error{
   height:44.8vh;
 }
@@ -25,18 +28,7 @@ a {
   z-index: 99;
 }
 .nav .active{
-  position: relative;
-}
-.nav .active::before{
-content: "";
-  position: absolute;
-  width: 2px;
-  height: 11px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  bottom: 50%;
-  left: 0;
-  transform: translate(-100%, 40%);
+  color: #ffe57e !important;
 }
 .nav .logo svg{
     background-color: #fff;
@@ -60,6 +52,7 @@ content: "";
 
 .nav .cart .num{
       font-size: 14px;
+      font-weight: bold;
         width: 15px;
         height: 15px;
         background-color: #fff;
@@ -71,7 +64,7 @@ content: "";
         display: flex;
         justify-content: center;
         align-items: center;
-            padding: 8px;
+        padding: 8px;
 }
 .nav .navbar-toggler,
 .nav .navbar-toggler-icon,

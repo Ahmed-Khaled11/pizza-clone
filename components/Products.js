@@ -8,7 +8,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
 export default function Products(props) {
   const [products, setProducts] = useState([]);
   const [loading, setloading] = useState(false);
@@ -17,7 +16,7 @@ export default function Products(props) {
     const getProducts = async () => {
       setloading(true);
       const response = await fetch(
-        "https://pizza-clone.vercel.app/api/products"
+        "http://localhost:3000/api/products"
       );
       if (componentMounted) {
         setProducts(await response.clone().json());
@@ -87,7 +86,9 @@ export default function Products(props) {
       <section className="gallery d-flex justify-content-center align-products-center text-center pt-5 pb-5">
         <Container>
           <div className="text">
-            <h2 className="fw-bold text-uppercase">the best pizza in twon</h2>
+            <h2 className="fw-bold text-uppercase">
+              the best <span className="pizza">pizza</span> in twon
+            </h2>
             <p className="text-black-50">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Accusantium sit aliquid, suscipit velit quia, pariatur repellat
