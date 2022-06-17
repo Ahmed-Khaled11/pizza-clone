@@ -141,7 +141,7 @@ export async function getStaticProps(context) {
   };
 }
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  const res = await fetch(`https://pizza-clone.vercel.app/api/products`);
   const data = await res.json();
   const paths = data.map((product) => {
     return {
