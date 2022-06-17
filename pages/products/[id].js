@@ -131,7 +131,7 @@ export default function ProductDetails(props) {
 
 export async function getStaticProps(context) {
   const res = await fetch(
-    `https://pizza-clone.vercel.app/products/${context.params.id}`
+    `https://pizza-clone.vercel.app/api/products/${context.params.id}`
   );
   const data = await res.json();
   return {
