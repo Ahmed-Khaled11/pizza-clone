@@ -16,7 +16,7 @@ export default function Products(props) {
     const getProducts = async () => {
       setloading(true);
       const response = await fetch(
-        "https://pizza-clone.vercel.app/api/products"
+        "https://pizza-twon.vercel.app/api/products"
       );
       if (componentMounted) {
         setProducts(await response.clone().json());
